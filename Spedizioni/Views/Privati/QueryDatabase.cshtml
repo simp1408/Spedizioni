@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "QueryDatabase";
+}
+
+<h2>QueryDatabase</h2>
+
+<p id="caricaLista">Clicca per visualizzare la lista</p>
+
+<ul id="ListaPrivati">
+
+</ul>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#caricaLista").click(function () {
+           
+            $.ajax({
+                method: 'GET',
+                url: 'GetAllPrivati',
+                success: function (d) {
+                    $.each(d, function (index, valore) {
+                        $("#ListaPrivati").append("<li><b> N.Cliente:</b> " + valore.IDcliente + "<b>Nome Cliente: </b> " + valore.Nome + "<b>Cognome Cliente:  </b>" + valore.Cognome + "<b>Codi Fiscale:  </b>" + valore.Cod_fisc + "<b>Luogo di Nascita </b>" + valore.LuogoNascita + "<b>Residenza: </b>" + valore.Residenza +"<b>Data di Nascita: </b>"+valore.DataNascita+"<li>");
+                    })
+                }
+                })   
+        })
+    })
+</script>
+

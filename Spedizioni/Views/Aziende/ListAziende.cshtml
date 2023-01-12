@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Spedizioni.Models.Aziende>
+
+@{
+    ViewBag.Title = "ListAziende";
+}
+
+<h2>Lista Aziende</h2>
+
+<p>
+    @Html.ActionLink("Add Azienda", "RegistrazioneAzienda")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDazienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeAzienda)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartitaIva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndirizzoSede)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Citta)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDazienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeAzienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartitaIva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndirizzoSede)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Citta)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

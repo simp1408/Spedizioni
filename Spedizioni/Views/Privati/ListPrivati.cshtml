@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Spedizioni.Models.Privati>
+
+@{
+    ViewBag.Title = "ListPrivati";
+}
+
+<h2>ListPrivati</h2>
+<h2>Lista Clienti</h2>
+
+<p class="btn btn-warning text-decoration-none">
+   @Html.ActionLink("ADD Privato", "RegistrazionePrivati")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDcliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cod_fisc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LuogoNascita)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Residenza)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascita)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDcliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cod_fisc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LuogoNascita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Residenza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascita)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
